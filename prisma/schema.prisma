@@ -25,6 +25,8 @@ model Program {
   discount            Int?
   subjectsStickerType StickerType?
   copyToKk            Boolean?
+  study_field_id      Int?
+  study_field         StudyField?  @relation(fields: [study_field_id], references: [id])
 }
 
 enum StudyFormat {
@@ -37,4 +39,21 @@ enum StickerType {
   finalAttestation
   fullTimeModuleInMoscow
   practiceModulesAndFinalAttestation
+}
+
+model StudyField {
+  id           Int       @id @default(autoincrement())
+  name         String
+  description  String
+  copyToKk     Boolean?
+  slug         String
+  locale       Locale
+  published_at DateTime
+  created_at   DateTime
+  updated_at   DateTime
+  programs     Program[]
+}
+
+enum Locale {
+  ru
 }
