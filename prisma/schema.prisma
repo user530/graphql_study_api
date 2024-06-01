@@ -14,7 +14,27 @@ datasource db {
 }
 
 model Program {
-  id Int @id @default(autoincrement())
-  title String
-  slug String
+  id                  Int          @id @default(autoincrement())
+  title               String
+  slug                String
+  showInMenu          Boolean?
+  studyFormat         StudyFormat
+  goal                String
+  description         String
+  price               BigInt?
+  discount            Int?
+  subjectsStickerType StickerType?
+  copyToKk            Boolean?
+}
+
+enum StudyFormat {
+  online
+  campus
+  blended
+}
+
+enum StickerType {
+  finalAttestation
+  fullTimeModuleInMoscow
+  practiceModulesAndFinalAttestation
 }
