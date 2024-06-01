@@ -27,6 +27,8 @@ model Program {
   copyToKk            Boolean?
   study_field_id      Int?
   study_field         StudyField?  @relation(fields: [study_field_id], references: [id])
+  categoryId          Int
+  category            Category     @relation(fields: [categoryId], references: [id])
 }
 
 enum StudyFormat {
@@ -56,4 +58,34 @@ model StudyField {
 
 enum Locale {
   ru
+}
+
+model Category {
+  id           Int          @id @default(autoincrement())
+  type         CategoryType
+  slug         String
+  copyToKk     Boolean
+  description  String
+  locale       Locale
+  published_at DateTime
+  created_at   DateTime
+  updated_at   DateTime
+  labelCasesId Int
+  labelCases   LabelCase    @relation(fields: [labelCasesId], references: [id])
+  Program      Program[]
+}
+
+enum CategoryType {
+  mini
+  executive
+  profession
+  course
+  mba
+}
+
+model LabelCase {
+  id         Int        @id @default(autoincrement())
+  singular   String
+  plural     String
+  categories Category[]
 }
