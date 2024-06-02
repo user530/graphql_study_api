@@ -104,22 +104,38 @@ model LabelCase {
   categories Category[]
 }
 
-model WhatWillYouLearn {
-  id        Int      @id @default(autoincrement())
-  string    String
-  title     String?
-  duration  Int?
-  new       Boolean?
-  skills    Skill[]
-  programId Int?
-  Program   Program? @relation(fields: [programId], references: [id])
+model Subject {
+  id       Int                @id @default(autoincrement())
+  string   String
+  title    String?
+  duration Int?
+  new      Boolean?
+  skills   SkillsOnSubjects[]
+  program  WhatWillYouLearn[]
 }
 
 model Skill {
-  id                 Int              @id @default(autoincrement())
-  title              String?
-  string             String?
-  new                Boolean?
-  whatWillYouLearnId Int
-  WhatWillYouLearn   WhatWillYouLearn @relation(fields: [whatWillYouLearnId], references: [id])
+  id       Int                @id @default(autoincrement())
+  title    String?
+  string   String?
+  new      Boolean?
+  subjects SkillsOnSubjects[]
+}
+
+model SkillsOnSubjects {
+  subjectId Int
+  Subject   Subject @relation(fields: [subjectId], references: [id])
+  skillId   Int
+  Skill     Skill   @relation(fields: [skillId], references: [id])
+
+  @@id([skillId, subjectId])
+}
+
+model WhatWillYouLearn {
+  programId Int
+  Program   Program @relation(fields: [programId], references: [id])
+  subjectId Int
+  Subject   Subject @relation(fields: [subjectId], references: [id])
+
+  @@id([programId, subjectId])
 }
