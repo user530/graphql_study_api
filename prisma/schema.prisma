@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Program {
-  id                  Int          @id @default(autoincrement())
+  id                  Int                @id @default(autoincrement())
   title               String
   slug                String
   showInMenu          Boolean?
@@ -26,9 +26,23 @@ model Program {
   subjectsStickerType StickerType?
   copyToKk            Boolean?
   study_field_id      Int?
-  study_field         StudyField?  @relation(fields: [study_field_id], references: [id])
+  study_field         StudyField?        @relation(fields: [study_field_id], references: [id])
   categoryId          Int
-  category            Category     @relation(fields: [categoryId], references: [id])
+  category            Category           @relation(fields: [categoryId], references: [id])
+  icon                String?
+  metaTitle           String?
+  metaDescription     String?
+  locale              Locale
+  published_at        DateTime
+  created_at          DateTime
+  updated_at          DateTime
+  isActive            Boolean
+  // program Program?       self referencing field? wtf?! 
+  new                 Boolean?
+  hit                 Boolean?
+  frdo                Boolean?
+  employment          Boolean?
+  whatWillYouLearn    WhatWillYouLearn[]
 }
 
 enum StudyFormat {
@@ -72,7 +86,7 @@ model Category {
   updated_at   DateTime
   labelCasesId Int
   labelCases   LabelCase    @relation(fields: [labelCasesId], references: [id])
-  Program      Program[]
+  programs     Program[]
 }
 
 enum CategoryType {
@@ -88,4 +102,24 @@ model LabelCase {
   singular   String
   plural     String
   categories Category[]
+}
+
+model WhatWillYouLearn {
+  id        Int      @id @default(autoincrement())
+  string    String
+  title     String?
+  duration  Int?
+  new       Boolean?
+  skills    Skill[]
+  programId Int?
+  Program   Program? @relation(fields: [programId], references: [id])
+}
+
+model Skill {
+  id                 Int              @id @default(autoincrement())
+  title              String?
+  string             String?
+  new                Boolean?
+  whatWillYouLearnId Int
+  WhatWillYouLearn   WhatWillYouLearn @relation(fields: [whatWillYouLearnId], references: [id])
 }
