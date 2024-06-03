@@ -45,6 +45,7 @@ model Program {
   whatWillYouLearn    WhatWillYouLearn[]
   specializedSubjects SpecializedSubject[]
   duration            Duration?
+  baseSubjects        BaseSubject[]
 }
 
 enum StudyFormat {
@@ -115,6 +116,7 @@ model Subject {
   skills                    SkillsOnSubjects[]
   ProgramWhatWillYouLearn   WhatWillYouLearn[]
   ProgramSpecializedSubject SpecializedSubject[]
+  ProgramBaseSubjects       BaseSubject[]
 }
 
 model Skill {
@@ -179,4 +181,13 @@ model ModuleToolsOnDuration {
   Duration     Duration   @relation(fields: [durationId], references: [id])
 
   @@id([moduleToolId, durationId])
+}
+
+model BaseSubject {
+  programId Int
+  Program   Program @relation(fields: [programId], references: [id])
+  subjectId Int
+  Subject   Subject @relation(fields: [subjectId], references: [id])
+
+  @@id([programId, subjectId])
 }
