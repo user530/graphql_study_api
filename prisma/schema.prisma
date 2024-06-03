@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Program {
-  id                  Int                @id @default(autoincrement())
+  id                  Int                  @id @default(autoincrement())
   title               String
   slug                String
   showInMenu          Boolean?
@@ -26,9 +26,9 @@ model Program {
   subjectsStickerType StickerType?
   copyToKk            Boolean?
   study_field_id      Int?
-  study_field         StudyField?        @relation(fields: [study_field_id], references: [id])
+  study_field         StudyField?          @relation(fields: [study_field_id], references: [id])
   categoryId          Int
-  category            Category           @relation(fields: [categoryId], references: [id])
+  category            Category             @relation(fields: [categoryId], references: [id])
   icon                String?
   metaTitle           String?
   metaDescription     String?
@@ -43,6 +43,7 @@ model Program {
   frdo                Boolean?
   employment          Boolean?
   whatWillYouLearn    WhatWillYouLearn[]
+  specializedSubjects SpecializedSubject[]
 }
 
 enum StudyFormat {
@@ -105,13 +106,14 @@ model LabelCase {
 }
 
 model Subject {
-  id       Int                @id @default(autoincrement())
-  string   String
-  title    String?
-  duration Int?
-  new      Boolean?
-  skills   SkillsOnSubjects[]
-  program  WhatWillYouLearn[]
+  id                        Int                  @id @default(autoincrement())
+  string                    String
+  title                     String?
+  duration                  Int?
+  new                       Boolean?
+  skills                    SkillsOnSubjects[]
+  ProgramWhatWillYouLearn   WhatWillYouLearn[]
+  ProgramSpecializedSubject SpecializedSubject[]
 }
 
 model Skill {
@@ -132,6 +134,15 @@ model SkillsOnSubjects {
 }
 
 model WhatWillYouLearn {
+  programId Int
+  Program   Program @relation(fields: [programId], references: [id])
+  subjectId Int
+  Subject   Subject @relation(fields: [subjectId], references: [id])
+
+  @@id([programId, subjectId])
+}
+
+model SpecializedSubject {
   programId Int
   Program   Program @relation(fields: [programId], references: [id])
   subjectId Int
