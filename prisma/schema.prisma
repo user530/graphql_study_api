@@ -14,38 +14,39 @@ datasource db {
 }
 
 model Program {
-  id                  Int                  @id @default(autoincrement())
-  title               String
-  slug                String
-  showInMenu          Boolean?
-  studyFormat         StudyFormat
-  goal                String
-  description         String
-  price               BigInt?
-  discount            Int?
-  subjectsStickerType StickerType?
-  copyToKk            Boolean?
-  study_field_id      Int?
-  study_field         StudyField?          @relation(fields: [study_field_id], references: [id])
-  categoryId          Int
-  category            Category             @relation(fields: [categoryId], references: [id])
-  icon                String?
-  metaTitle           String?
-  metaDescription     String?
-  locale              Locale
-  published_at        DateTime
-  created_at          DateTime
-  updated_at          DateTime
-  isActive            Boolean
+  id                     Int                    @id @default(autoincrement())
+  title                  String
+  slug                   String
+  showInMenu             Boolean?
+  studyFormat            StudyFormat
+  goal                   String
+  description            String
+  price                  BigInt?
+  discount               Int?
+  subjectsStickerType    StickerType?
+  copyToKk               Boolean?
+  study_field_id         Int?
+  study_field            StudyField?            @relation(fields: [study_field_id], references: [id])
+  categoryId             Int
+  category               Category               @relation(fields: [categoryId], references: [id])
+  icon                   String?
+  metaTitle              String?
+  metaDescription        String?
+  locale                 Locale
+  published_at           DateTime
+  created_at             DateTime
+  updated_at             DateTime
+  isActive               Boolean
   // program Program?       self referencing field? wtf?! 
-  new                 Boolean?
-  hit                 Boolean?
-  frdo                Boolean?
-  employment          Boolean?
-  whatWillYouLearn    WhatWillYouLearn[]
-  specializedSubjects SpecializedSubject[]
-  duration            Duration?
-  baseSubjects        BaseSubject[]
+  new                    Boolean?
+  hit                    Boolean?
+  frdo                   Boolean?
+  employment             Boolean?
+  whatWillYouLearn       WhatWillYouLearn[]
+  specializedSubjects    SpecializedSubject[]
+  duration               Duration?
+  baseSubjects           BaseSubject[]
+  programModulesCounters ProgramModulesCounter?
 }
 
 enum StudyFormat {
@@ -190,4 +191,12 @@ model BaseSubject {
   Subject   Subject @relation(fields: [subjectId], references: [id])
 
   @@id([programId, subjectId])
+}
+
+model ProgramModulesCounter {
+  id           Int     @id @default(autoincrement())
+  leftCounter  String?
+  rightCounter String?
+  programId    Int     @unique
+  Program      Program @relation(fields: [programId], references: [id])
 }
