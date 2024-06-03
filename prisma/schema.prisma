@@ -44,6 +44,7 @@ model Program {
   employment          Boolean?
   whatWillYouLearn    WhatWillYouLearn[]
   specializedSubjects SpecializedSubject[]
+  duration            Duration?
 }
 
 enum StudyFormat {
@@ -149,4 +150,33 @@ model SpecializedSubject {
   Subject   Subject @relation(fields: [subjectId], references: [id])
 
   @@id([programId, subjectId])
+}
+
+model Duration {
+  id                 Int                     @id @default(autoincrement())
+  studyHours         String?
+  minStudyMonths     Float?
+  practicalLessons   Int?
+  workshops          Int?
+  modulesDescription String?
+  modulesResult      String?
+  videomaterials     Int?
+  modulesTools       ModuleToolsOnDuration[]
+  programId          Int                     @unique
+  Program            Program                 @relation(fields: [programId], references: [id])
+}
+
+model ModuleTool {
+  id        Int                     @id @default(autoincrement())
+  tool      String
+  durations ModuleToolsOnDuration[]
+}
+
+model ModuleToolsOnDuration {
+  moduleToolId Int
+  ModuleTool   ModuleTool @relation(fields: [moduleToolId], references: [id])
+  durationId   Int
+  Duration     Duration   @relation(fields: [durationId], references: [id])
+
+  @@id([moduleToolId, durationId])
 }
