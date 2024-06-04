@@ -47,6 +47,7 @@ model Program {
   duration               Duration?
   baseSubjects           BaseSubject[]
   programModulesCounters ProgramModulesCounter?
+  diplomas               DiplomaOnProgram[]
 }
 
 enum StudyFormat {
@@ -199,4 +200,20 @@ model ProgramModulesCounter {
   rightCounter String?
   programId    Int     @unique
   Program      Program @relation(fields: [programId], references: [id])
+}
+
+model Diploma {
+  id       Int                @id @default(autoincrement())
+  name     String?
+  Programs DiplomaOnProgram[]
+  // diploma [ ] self referencing field... again?! 
+}
+
+model DiplomaOnProgram {
+  diplomaId Int
+  Diploma   Diploma @relation(fields: [diplomaId], references: [id])
+  programId Int
+  Program   Program @relation(fields: [programId], references: [id])
+
+  @@id([diplomaId, programId])
 }
