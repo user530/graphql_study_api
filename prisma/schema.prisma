@@ -51,6 +51,7 @@ model Program {
   whoIsFor                  PotentialCandidatOnProgram[]
   specSubjectsAddonId       Int?
   specializedSubjectsAddons SubjectAddon?                @relation(fields: [specSubjectsAddonId], references: [id])
+  actualInformation         ActualInformation?
 }
 
 enum StudyFormat {
@@ -243,4 +244,22 @@ model SubjectAddon {
   OfflineModule     Boolean?
   diplomaProtection Boolean?
   Programs          Program[]
+}
+
+model ActualInformation {
+  id           Int      @id @default(autoincrement())
+  paragraph    String?
+  description  String
+  photo1Id     Int?
+  actualPhoto1 Picture? @relation(name: "picture1", fields: [photo1Id], references: [id])
+  photo2Id     Int?
+  actualPhoto2 Picture? @relation(name: "picture2", fields: [photo2Id], references: [id])
+  programId    Int      @unique
+  Program      Program  @relation(fields: [programId], references: [id])
+}
+
+model Picture {
+  id                      Int                 @id @default(autoincrement())
+  ActualInformationPhoto1 ActualInformation[] @relation(name: "picture1")
+  ActualInformationPhoto2 ActualInformation[] @relation(name: "picture2")
 }
