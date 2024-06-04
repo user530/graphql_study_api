@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Program {
-  id                     Int                    @id @default(autoincrement())
+  id                     Int                          @id @default(autoincrement())
   title                  String
   slug                   String
   showInMenu             Boolean?
@@ -26,9 +26,9 @@ model Program {
   subjectsStickerType    StickerType?
   copyToKk               Boolean?
   study_field_id         Int?
-  study_field            StudyField?            @relation(fields: [study_field_id], references: [id])
+  study_field            StudyField?                  @relation(fields: [study_field_id], references: [id])
   categoryId             Int
-  category               Category               @relation(fields: [categoryId], references: [id])
+  category               Category                     @relation(fields: [categoryId], references: [id])
   icon                   String?
   metaTitle              String?
   metaDescription        String?
@@ -48,6 +48,7 @@ model Program {
   baseSubjects           BaseSubject[]
   programModulesCounters ProgramModulesCounter?
   diplomas               DiplomaOnProgram[]
+  whoIsFor               PotentialCandidatOnProgram[]
 }
 
 enum StudyFormat {
@@ -216,4 +217,20 @@ model DiplomaOnProgram {
   Program   Program @relation(fields: [programId], references: [id])
 
   @@id([diplomaId, programId])
+}
+
+model PotentialCandidat {
+  id          Int                          @id @default(autoincrement())
+  name        String
+  description String
+  Programs    PotentialCandidatOnProgram[]
+}
+
+model PotentialCandidatOnProgram {
+  candidatId Int
+  Candidat   PotentialCandidat @relation(fields: [candidatId], references: [id])
+  programId  Int
+  Program    Program           @relation(fields: [programId], references: [id])
+
+  @@id([candidatId, programId])
 }
