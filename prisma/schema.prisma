@@ -52,6 +52,7 @@ model Program {
   specSubjectsAddonId       Int?
   specializedSubjectsAddons SubjectAddon?                @relation(fields: [specSubjectsAddonId], references: [id])
   actualInformation         ActualInformation?
+  bonusSubjects             BonusSubject[]
 }
 
 enum StudyFormat {
@@ -115,7 +116,7 @@ model LabelCase {
 
 model Subject {
   id                        Int                  @id @default(autoincrement())
-  string                    String
+  string                    String?
   title                     String?
   duration                  Int?
   new                       Boolean?
@@ -123,6 +124,7 @@ model Subject {
   ProgramWhatWillYouLearn   WhatWillYouLearn[]
   ProgramSpecializedSubject SpecializedSubject[]
   ProgramBaseSubjects       BaseSubject[]
+  ProgramBonusSubjects      BonusSubject[]
 }
 
 model Skill {
@@ -262,4 +264,13 @@ model Picture {
   id                      Int                 @id @default(autoincrement())
   ActualInformationPhoto1 ActualInformation[] @relation(name: "picture1")
   ActualInformationPhoto2 ActualInformation[] @relation(name: "picture2")
+}
+
+model BonusSubject {
+  programId Int
+  Program   Program @relation(fields: [programId], references: [id])
+  subjectId Int
+  Subject   Subject @relation(fields: [subjectId], references: [id])
+
+  @@id([programId, subjectId])
 }
