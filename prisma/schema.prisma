@@ -55,6 +55,7 @@ model Program {
   bonusSubjects             BonusSubject[]
   heroAdvantages            HeroAdvantageOnProgram[]
   programReviews            Review[]
+  faq                       FaqOnProgram[]
 }
 
 enum StudyFormat {
@@ -302,4 +303,20 @@ model Review {
   studentPhoto  Picture? @relation(fields: [photoId], references: [id])
   Program       Program? @relation(fields: [programId], references: [id])
   programId     Int?
+}
+
+model Faq {
+  id       Int            @id @default(autoincrement())
+  question String
+  answer   String
+  Programs FaqOnProgram[]
+}
+
+model FaqOnProgram {
+  faqId     Int
+  Faq       Faq     @relation(fields: [faqId], references: [id])
+  programId Int
+  Program   Program @relation(fields: [programId], references: [id])
+
+  @@id([faqId, programId])
 }
