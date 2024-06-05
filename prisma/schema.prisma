@@ -53,6 +53,7 @@ model Program {
   specializedSubjectsAddons SubjectAddon?                @relation(fields: [specSubjectsAddonId], references: [id])
   actualInformation         ActualInformation?
   bonusSubjects             BonusSubject[]
+  heroAdvantages            HeroAdvantageOnProgram[]
 }
 
 enum StudyFormat {
@@ -273,4 +274,19 @@ model BonusSubject {
   Subject   Subject @relation(fields: [subjectId], references: [id])
 
   @@id([programId, subjectId])
+}
+
+model HeroAdvantage {
+  id       Int                      @id @default(autoincrement())
+  string   String
+  Programs HeroAdvantageOnProgram[]
+}
+
+model HeroAdvantageOnProgram {
+  heroAdvantageId Int
+  HeroAdvantage   HeroAdvantage @relation(fields: [heroAdvantageId], references: [id])
+  programId       Int
+  Program         Program       @relation(fields: [programId], references: [id])
+
+  @@id([heroAdvantageId, programId])
 }
