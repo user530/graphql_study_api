@@ -136,5 +136,30 @@ async function main() {
                 updated_at: new Date("2022-06-07T16:03:48.259Z"),
             }
         ]
-    })
+    });
+
+    await prisma.labelCase.createMany({
+        data: [
+            {
+                singular: "Mini MBA",
+                plural: "Mini MBA"
+            },
+            {
+                singular: "Executive MBA",
+                plural: "Executive MBA"
+            },
+            {
+                singular: "Профессия",
+                plural: "Профессии"
+            },
+            {
+                singular: "Курс",
+                plural: "Курсы"
+            },
+            {
+                singular: "MBA",
+                plural: "MBA"
+            },
+        ]
+    });
 }
