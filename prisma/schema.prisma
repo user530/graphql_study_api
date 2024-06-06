@@ -56,6 +56,8 @@ model Program {
   heroAdvantages            HeroAdvantageOnProgram[]
   programReviews            Review[]
   faq                       FaqOnProgram[]
+  pictureId                 Int?
+  Picture                   Picture?                     @relation(fields: [pictureId], references: [id])
 }
 
 enum StudyFormat {
@@ -265,9 +267,26 @@ model ActualInformation {
 
 model Picture {
   id                      Int                 @id @default(autoincrement())
+  name                    String
+  alternativeText         String              @default("")
+  caption                 String              @default("")
+  width                   Int
+  height                  Int
+  formats                 Json
+  hash                    String
+  ext                     String
+  mime                    String
+  size                    Float
+  url                     String
+  previewUrl              String?
+  provider                String
+  provider_metadata       Json
+  created_at              DateTime
+  updated_at              DateTime
   ActualInformationPhoto1 ActualInformation[] @relation(name: "picture1")
   ActualInformationPhoto2 ActualInformation[] @relation(name: "picture2")
   ReviewPhoto             Review[]
+  Program                 Program[]
 }
 
 model BonusSubject {
