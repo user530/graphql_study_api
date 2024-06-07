@@ -239,5 +239,578 @@ async function main() {
                 labelCasesId: 5,
             },
         ]
-    })
+    });
+
+    await prisma.picture.createMany({
+        data: [
+            {
+                id: 1,
+                name: "bg-header-11.jpg",
+                alternativeText: "",
+                caption: "",
+                width: 1920,
+                height: 1158,
+                formats: {
+                    large: {
+                        "ext": ".jpg",
+                        "url": "https://res.cloudinary.com/npomba/image/upload/v1631637541/large_bg_header_11_1b039a2d94.jpg",
+                        "hash": "large_bg_header_11_1b039a2d94",
+                        "mime": "image/jpeg",
+                        "name": "large_bg-header-11.jpg",
+                        "path": null,
+                        "size": 118.44,
+                        "width": 1000,
+                        "height": 603,
+                        "provider_metadata": {
+                            "public_id": "large_bg_header_11_1b039a2d94",
+                            "resource_type": "image"
+                        }
+                    },
+                    small: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637543/small_bg_header_11_1b039a2d94.jpg",
+                        hash: "small_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "small_bg-header-11.jpg",
+                        path: null,
+                        size: 36.33,
+                        width: 500,
+                        height: 302,
+                        provider_metadata: {
+                            public_id: "small_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637542/medium_bg_header_11_1b039a2d94.jpg",
+                        hash: "medium_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "medium_bg-header-11.jpg",
+                        path: null,
+                        size: 71.48,
+                        width: 750,
+                        height: 452,
+                        provider_metadata: {
+                            public_id: "medium_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637540/thumbnail_bg_header_11_1b039a2d94.jpg",
+                        hash: "thumbnail_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "thumbnail_bg-header-11.jpg",
+                        path: null,
+                        size: 10.99,
+                        width: 245,
+                        height: 148,
+                        provider_metadata: {
+                            public_id: "thumbnail_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "bg_header_11_1b039a2d94",
+                ext: ".jpg",
+                mime: "image/jpeg",
+                size: 232.37,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1631637539/bg_header_11_1b039a2d94.jpg",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "bg_header_11_1b039a2d94",
+                    resource_type: "image"
+                },
+                created_at: new Date("2021-09-14T16:39:03.771Z"),
+                updated_at: new Date("2021-10-20T07:22:42.557Z"),
+            },
+            {
+                id: 2,
+                name: "bg-header-4.jpg",
+                alternativeText: "",
+                caption: "",
+                width: 1920,
+                height: 1156,
+                formats: {
+                    large: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637524/large_bg_header_4_e11335d6ec.jpg",
+                        hash: "large_bg_header_4_e11335d6ec",
+                        mime: "image/jpeg",
+                        name: "large_bg-header-4.jpg",
+                        path: null,
+                        size: 86.08,
+                        width: 1000,
+                        height: 602,
+                        provider_metadata: {
+                            public_id: "large_bg_header_4_e11335d6ec",
+                            resource_type: "image"
+                        }
+                    },
+                    small: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637527/small_bg_header_4_e11335d6ec.jpg",
+                        hash: "small_bg_header_4_e11335d6ec",
+                        mime: "image/jpeg",
+                        name: "small_bg-header-4.jpg",
+                        path: null,
+                        size: 27.04,
+                        width: 500,
+                        height: 301,
+                        provider_metadata: {
+                            public_id: "small_bg_header_4_e11335d6ec",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637525/medium_bg_header_4_e11335d6ec.jpg",
+                        hash: "medium_bg_header_4_e11335d6ec",
+                        mime: "image/jpeg",
+                        name: "medium_bg-header-4.jpg",
+                        path: null,
+                        size: 51.92,
+                        width: 750,
+                        height: 452,
+                        provider_metadata: {
+                            public_id: "medium_bg_header_4_e11335d6ec",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637523/thumbnail_bg_header_4_e11335d6ec.jpg",
+                        hash: "thumbnail_bg_header_4_e11335d6ec",
+                        mime: "image/jpeg",
+                        name: "thumbnail_bg-header-4.jpg",
+                        path: null,
+                        size: 8.84,
+                        width: 245,
+                        height: 148,
+                        provider_metadata: {
+                            public_id: "thumbnail_bg_header_4_e11335d6ec",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "bg_header_4_e11335d6ec",
+                ext: ".jpg",
+                mime: "image/jpeg",
+                size: 233.82,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1631637522/bg_header_4_e11335d6ec.jpg",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "bg_header_4_e11335d6ec",
+                    resource_type: "image"
+                },
+                created_at: new Date("2021-09-14T16:38:47.424Z"),
+                updated_at: new Date("2021-10-20T08:01:57.638Z"),
+            },
+            {
+                id: 3,
+                name: "bg-header-2.jpg",
+                alternativeText: "",
+                caption: "",
+                width: 1920,
+                height: 1057,
+                formats: {
+                    large: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637525/large_bg_header_2_501dc41a98.jpg",
+                        hash: "large_bg_header_2_501dc41a98",
+                        mime: "image/jpeg",
+                        name: "large_bg-header-2.jpg",
+                        path: null,
+                        size: 165.58,
+                        width: 1000,
+                        height: 551,
+                        provider_metadata: {
+                            public_id: "large_bg_header_2_501dc41a98",
+                            resource_type: "image"
+                        }
+                    },
+                    small: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637529/small_bg_header_2_501dc41a98.jpg",
+                        hash: "small_bg_header_2_501dc41a98",
+                        mime: "image/jpeg",
+                        name: "small_bg-header-2.jpg",
+                        path: null,
+                        size: 50.57,
+                        width: 500,
+                        height: 275,
+                        provider_metadata: {
+                            public_id: "small_bg_header_2_501dc41a98",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637527/medium_bg_header_2_501dc41a98.jpg",
+                        hash: "medium_bg_header_2_501dc41a98",
+                        mime: "image/jpeg",
+                        name: "medium_bg-header-2.jpg",
+                        path: null,
+                        size: 99.61,
+                        width: 750,
+                        height: 413,
+                        provider_metadata: {
+                            public_id: "medium_bg_header_2_501dc41a98",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637524/thumbnail_bg_header_2_501dc41a98.jpg",
+                        hash: "thumbnail_bg_header_2_501dc41a98",
+                        mime: "image/jpeg",
+                        name: "thumbnail_bg-header-2.jpg",
+                        path: null,
+                        size: 14.12,
+                        width: 245,
+                        height: 135,
+                        provider_metadata: {
+                            public_id: "thumbnail_bg_header_2_501dc41a98",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "bg_header_2_501dc41a98",
+                ext: ".jpg",
+                mime: "image/jpeg",
+                size: 396.54,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1631637523/bg_header_2_501dc41a98.jpg",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "bg_header_2_501dc41a98",
+                    resource_type: "image"
+                },
+                created_at: new Date("2021-09-14T16:38:49.336Z"),
+                updated_at: new Date("2021-10-20T07:00:02.956Z"),
+            },
+            {
+                id: 4,
+                name: "bg-header-5.jpg",
+                alternativeText: "",
+                caption: "",
+                width: 1920,
+                height: 1280,
+                formats: {
+                    large: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637536/large_bg_header_5_5139d89af8.jpg",
+                        hash: "large_bg_header_5_5139d89af8",
+                        mime: "image/jpeg",
+                        name: "large_bg-header-5.jpg",
+                        path: null,
+                        size: 197.76,
+                        width: 1000,
+                        height: 667,
+                        provider_metadata: {
+                            public_id: "large_bg_header_5_5139d89af8",
+                            resource_type: "image"
+                        }
+                    },
+                    small: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637538/small_bg_header_5_5139d89af8.jpg",
+                        hash: "small_bg_header_5_5139d89af8",
+                        mime: "image/jpeg",
+                        name: "small_bg-header-5.jpg",
+                        path: null,
+                        size: 61.71,
+                        width: 500,
+                        height: 333,
+                        provider_metadata: {
+                            public_id: "small_bg_header_5_5139d89af8",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637537/medium_bg_header_5_5139d89af8.jpg",
+                        hash: "medium_bg_header_5_5139d89af8",
+                        mime: "image/jpeg",
+                        name: "medium_bg-header-5.jpg",
+                        path: null,
+                        size: 120.93,
+                        width: 750,
+                        height: 500,
+                        provider_metadata: {
+                            public_id: "medium_bg_header_5_5139d89af8",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637535/thumbnail_bg_header_5_5139d89af8.jpg",
+                        hash: "thumbnail_bg_header_5_5139d89af8",
+                        mime: "image/jpeg",
+                        name: "thumbnail_bg-header-5.jpg",
+                        path: null,
+                        size: 15.93,
+                        width: 234,
+                        height: 156,
+                        provider_metadata: {
+                            public_id: "thumbnail_bg_header_5_5139d89af8",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "bg_header_5_5139d89af8",
+                ext: ".jpg",
+                mime: "image/jpeg",
+                size: 373.02,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1631637534/bg_header_5_5139d89af8.jpg",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "bg_header_5_5139d89af8",
+                    resource_type: "image"
+                },
+                created_at: new Date("2021-09-14T16:38:59.114Z"),
+                updated_at: new Date("2021-11-26T10:37:38.194Z")
+            },
+            {
+                id: 5,
+                name: "bg-header-11.jpg",
+                alternativeText: "",
+                caption: "",
+                width: 1920,
+                height: 1158,
+                formats: {
+                    large: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637541/large_bg_header_11_1b039a2d94.jpg",
+                        hash: "large_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "large_bg-header-11.jpg",
+                        path: null,
+                        size: 118.44,
+                        width: 1000,
+                        height: 603,
+                        provider_metadata: {
+                            public_id: "large_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    },
+                    small: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637543/small_bg_header_11_1b039a2d94.jpg",
+                        hash: "small_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "small_bg-header-11.jpg",
+                        path: null,
+                        size: 36.33,
+                        width: 500,
+                        height: 302,
+                        provider_metadata: {
+                            public_id: "small_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637542/medium_bg_header_11_1b039a2d94.jpg",
+                        hash: "medium_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "medium_bg-header-11.jpg",
+                        path: null,
+                        size: 71.48,
+                        width: 750,
+                        height: 452,
+                        provider_metadata: {
+                            public_id: "medium_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".jpg",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1631637540/thumbnail_bg_header_11_1b039a2d94.jpg",
+                        hash: "thumbnail_bg_header_11_1b039a2d94",
+                        mime: "image/jpeg",
+                        name: "thumbnail_bg-header-11.jpg",
+                        path: null,
+                        size: 10.99,
+                        width: 245,
+                        height: 148,
+                        provider_metadata: {
+                            public_id: "thumbnail_bg_header_11_1b039a2d94",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "bg_header_11_1b039a2d94",
+                ext: ".jpg",
+                mime: "image/jpeg",
+                size: 232.37,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1631637539/bg_header_11_1b039a2d94.jpg",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "bg_header_11_1b039a2d94",
+                    resource_type: "image"
+                },
+                created_at: new Date("2021-09-14T16:39:03.771Z"),
+                updated_at: new Date("2021-10-20T07:22:42.557Z")
+            },
+            {
+                id: 6,
+                name: "строй.png",
+                alternativeText: "",
+                caption: "",
+                width: 891,
+                height: 586,
+                formats: {
+                    small: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787350/small_stroj_546b71dd25.png",
+                        hash: "small_stroj_546b71dd25",
+                        mime: "image/png",
+                        name: "small_строй.png",
+                        path: null,
+                        size: 347.38,
+                        width: 500,
+                        height: 329,
+                        provider_metadata: {
+                            public_id: "small_stroj_546b71dd25",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787348/medium_stroj_546b71dd25.png",
+                        hash: "medium_stroj_546b71dd25",
+                        mime: "image/png",
+                        name: "medium_строй.png",
+                        path: null,
+                        size: 731.11,
+                        width: 750,
+                        height: 493,
+                        provider_metadata: {
+                            public_id: "medium_stroj_546b71dd25",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787346/thumbnail_stroj_546b71dd25.png",
+                        hash: "thumbnail_stroj_546b71dd25",
+                        mime: "image/png",
+                        name: "thumbnail_строй.png",
+                        path: null,
+                        size: 87.13,
+                        width: 237,
+                        height: 156,
+                        provider_metadata: {
+                            public_id: "thumbnail_stroj_546b71dd25",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "stroj_546b71dd25",
+                ext: ".png",
+                mime: "image/png",
+                size: 932.85,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1697787345/stroj_546b71dd25.png",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "stroj_546b71dd25",
+                    resource_type: "image"
+                },
+                created_at: new Date("2023-10-20T07:35:51.111Z"),
+                updated_at: new Date("2023-10-20T07:35:51.117Z")
+            },
+            {
+                id: 7,
+                name: "Налаживание прочных связей.png",
+                alternativeText: "",
+                caption: "",
+                width: 1035,
+                height: 584,
+                formats: {
+                    large: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787558/large_Nalazhivanie_prochnyh_svyazej_27b00d1685.png",
+                        hash: "large_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                        mime: "image/png",
+                        name: "large_Налаживание прочных связей.png",
+                        path: null,
+                        size: 640.73,
+                        width: 1000,
+                        height: 564,
+                        provider_metadata: {
+                            public_id: "large_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                            resource_type: "image"
+                        }
+                    },
+                    small: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787562/small_Nalazhivanie_prochnyh_svyazej_27b00d1685.png",
+                        hash: "small_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                        mime: "image/png",
+                        name: "small_Налаживание прочных связей.png",
+                        path: null,
+                        size: 179.32,
+                        width: 500,
+                        height: 282,
+                        provider_metadata: {
+                            public_id: "small_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                            resource_type: "image"
+                        }
+                    },
+                    medium: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787560/medium_Nalazhivanie_prochnyh_svyazej_27b00d1685.png",
+                        hash: "medium_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                        mime: "image/png",
+                        name: "medium_Налаживание прочных связей.png",
+                        path: null,
+                        size: 377.12,
+                        width: 750,
+                        height: 423,
+                        provider_metadata: {
+                            public_id: "medium_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                            resource_type: "image"
+                        }
+                    },
+                    thumbnail: {
+                        ext: ".png",
+                        url: "https://res.cloudinary.com/npomba/image/upload/v1697787557/thumbnail_Nalazhivanie_prochnyh_svyazej_27b00d1685.png",
+                        hash: "thumbnail_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                        mime: "image/png",
+                        name: "thumbnail_Налаживание прочных связей.png",
+                        path: null,
+                        size: 49.16,
+                        width: 245,
+                        height: 138,
+                        provider_metadata: {
+                            public_id: "thumbnail_Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                            resource_type: "image"
+                        }
+                    }
+                },
+                hash: "Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                ext: ".png",
+                mime: "image/png",
+                size: 618.13,
+                url: "https://res.cloudinary.com/npomba/image/upload/v1697787555/Nalazhivanie_prochnyh_svyazej_27b00d1685.png",
+                previewUrl: null,
+                provider: "cloudinary",
+                provider_metadata: {
+                    public_id: "Nalazhivanie_prochnyh_svyazej_27b00d1685",
+                    resource_type: "image"
+                },
+                created_at: new Date("2023-10-20T07:39:22.989Z"),
+                updated_at: new Date("2023-10-20T07:39:22.997Z")
+            }
+        ]
+    });
+
+
 }
