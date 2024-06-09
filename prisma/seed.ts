@@ -1150,4 +1150,27 @@ async function main() {
             },
         ]
     });
+
+    await prisma.subjectAddon.createMany({
+        data: [
+            {
+                id: 1,
+                Practice: true,
+                diplomaProtection: false,
+                OfflineModule: true,
+            },
+            {
+                id: 2,
+                Practice: false,
+                diplomaProtection: true,
+                OfflineModule: true,
+            },
+            {
+                id: 3,
+                Practice: true,
+                diplomaProtection: true,
+                OfflineModule: false,
+            },
+        ]
+    });
 }
