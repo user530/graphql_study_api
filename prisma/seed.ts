@@ -1467,4 +1467,53 @@ async function main() {
             },
         ]
     });
+
+    await prisma.diplomaOnProgram.createMany({
+        data: [
+            {
+                programId: 1,
+                diplomaId: 1,
+            },
+            {
+                programId: 1,
+                diplomaId: 2,
+            },
+            {
+                programId: 1,
+                diplomaId: 4,
+            },
+            {
+                programId: 1,
+                diplomaId: 7,
+            },
+            {
+                programId: 2,
+                diplomaId: 1,
+            },
+            {
+                programId: 2,
+                diplomaId: 4,
+            },
+            {
+                programId: 2,
+                diplomaId: 8,
+            },
+            {
+                programId: 3,
+                diplomaId: 2,
+            },
+            {
+                programId: 3,
+                diplomaId: 4,
+            },
+            {
+                programId: 3,
+                diplomaId: 7,
+            },
+            {
+                programId: 3,
+                diplomaId: 8,
+            },
+        ]
+    });
 }
