@@ -1296,7 +1296,39 @@ async function main() {
                 "duration": null,
                 "new": null,
             },
-
         ]
-    })
+    });
+
+    await prisma.skillsOnSubjects.createMany({
+        data: [
+            {
+                skillId: 1,
+                subjectId: 1,
+            },
+            {
+                skillId: 1,
+                subjectId: 2,
+            },
+            {
+                skillId: 1,
+                subjectId: 3,
+            },
+            {
+                skillId: 2,
+                subjectId: 1,
+            },
+            {
+                skillId: 2,
+                subjectId: 3,
+            },
+            {
+                skillId: 3,
+                subjectId: 1,
+            },
+            {
+                skillId: 3,
+                subjectId: 3,
+            },
+        ]
+    });
 }
