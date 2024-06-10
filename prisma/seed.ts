@@ -1516,4 +1516,41 @@ async function main() {
             },
         ]
     });
+
+    await prisma.potentialCandidatOnProgram.createMany({
+        data: [
+            {
+                programId: 1,
+                candidatId: 1,
+            },
+            {
+                programId: 1,
+                candidatId: 2,
+            },
+            {
+                programId: 2,
+                candidatId: 2,
+            },
+            {
+                programId: 2,
+                candidatId: 3,
+            },
+            {
+                programId: 3,
+                candidatId: 1,
+            },
+            {
+                programId: 3,
+                candidatId: 2,
+            },
+            {
+                programId: 3,
+                candidatId: 3,
+            },
+            {
+                programId: 3,
+                candidatId: 8,
+            },
+        ]
+    })
 }
