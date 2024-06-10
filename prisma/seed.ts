@@ -1614,5 +1614,28 @@ async function main() {
         ]
     });
 
-
+    await prisma.moduleToolsOnDuration.createMany({
+        data: [
+            {
+                durationId: 1,
+                moduleToolId: 1,
+            },
+            {
+                durationId: 1,
+                moduleToolId: 2,
+            },
+            {
+                durationId: 1,
+                moduleToolId: 3,
+            },
+            {
+                durationId: 2,
+                moduleToolId: 1,
+            },
+            {
+                durationId: 2,
+                moduleToolId: 3,
+            },
+        ]
+    });
 }
