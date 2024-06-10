@@ -1377,7 +1377,7 @@ async function main() {
         ]
     });
 
-    await prisma.whatWillYouLearn.createMany({
+    await prisma.specializedSubject.createMany({
         data: [
             {
                 programId: 1,
@@ -1393,4 +1393,42 @@ async function main() {
             },
         ]
     });
+
+    await prisma.baseSubject.createMany({
+        data: [
+            {
+                programId: 1,
+                subjectId: 3,
+            },
+            {
+                programId: 1,
+                subjectId: 10,
+            },
+            {
+                programId: 1,
+                subjectId: 11,
+            },
+            {
+                programId: 1,
+                subjectId: 12,
+            },
+            {
+                programId: 2,
+                subjectId: 9,
+            },
+            {
+                programId: 2,
+                subjectId: 10,
+            },
+            {
+                programId: 3,
+                subjectId: 3,
+            },
+            {
+                programId: 3,
+                subjectId: 9,
+            },
+        ]
+    });
+
 }
