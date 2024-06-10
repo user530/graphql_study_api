@@ -1376,4 +1376,21 @@ async function main() {
             },
         ]
     });
+
+    await prisma.whatWillYouLearn.createMany({
+        data: [
+            {
+                programId: 1,
+                subjectId: 12,
+            },
+            {
+                programId: 2,
+                subjectId: 12,
+            },
+            {
+                programId: 2,
+                subjectId: 13,
+            },
+        ]
+    });
 }
