@@ -1431,4 +1431,40 @@ async function main() {
         ]
     });
 
+    await prisma.diploma.createMany({
+        data: [
+            {
+                id: 1,
+                name: 'Diploma#1',
+            },
+            {
+                id: 2,
+                name: 'Diploma#2',
+            },
+            {
+                id: 3,
+                name: 'Diploma#3',
+            },
+            {
+                id: 4,
+                name: 'Diploma#4',
+            },
+            {
+                id: 5,
+                name: 'Diploma#5',
+            },
+            {
+                id: 6,
+                name: 'Diploma#6',
+            },
+            {
+                id: 7,
+                name: 'Diploma#7',
+            },
+            {
+                id: 8,
+                name: 'Diploma#8',
+            },
+        ]
+    });
 }
