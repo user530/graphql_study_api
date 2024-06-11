@@ -8,7 +8,11 @@ export class AppService {
   ) { }
 
   async getHello(): Promise<string> {
-    const data = await this.prismaService.program.findMany();
+    const data = await this.prismaService.program.findMany({
+      include: {
+        Picture: true,
+      }
+    });
     console.log(data);
     return 'Hello world!';
   }
