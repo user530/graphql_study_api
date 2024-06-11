@@ -1671,4 +1671,41 @@ async function main() {
             },
         ]
     });
+
+    await prisma.faqOnProgram.createMany({
+        data: [
+            {
+                programId: 1,
+                faqId: 1,
+            },
+            {
+                programId: 1,
+                faqId: 4,
+            },
+            {
+                programId: 1,
+                faqId: 5,
+            },
+            {
+                programId: 2,
+                faqId: 2,
+            },
+            {
+                programId: 2,
+                faqId: 3,
+            },
+            {
+                programId: 3,
+                faqId: 5,
+            },
+            {
+                programId: 3,
+                faqId: 6,
+            },
+            {
+                programId: 3,
+                faqId: 7,
+            },
+        ]
+    });
 }
