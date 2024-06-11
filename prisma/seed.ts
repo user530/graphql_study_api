@@ -1638,4 +1638,37 @@ async function main() {
             },
         ]
     });
+
+    await prisma.heroAdvantageOnProgram.createMany({
+        data: [
+            {
+                programId: 1,
+                heroAdvantageId: 1,
+            },
+            {
+                programId: 1,
+                heroAdvantageId: 2,
+            },
+            {
+                programId: 2,
+                heroAdvantageId: 3,
+            },
+            {
+                programId: 2,
+                heroAdvantageId: 5,
+            },
+            {
+                programId: 3,
+                heroAdvantageId: 2,
+            },
+            {
+                programId: 3,
+                heroAdvantageId: 4,
+            },
+            {
+                programId: 3,
+                heroAdvantageId: 5,
+            },
+        ]
+    });
 }
