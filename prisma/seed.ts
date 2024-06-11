@@ -1708,4 +1708,27 @@ async function main() {
             },
         ]
     });
+
+    await prisma.programModulesCounter.createMany({
+        data: [
+            {
+                id: 1,
+                programId: 1,
+                leftCounter: "LeftCounter#1",
+                rightCounter: "RightCounter#1",
+            },
+            {
+                id: 2,
+                programId: 2,
+                leftCounter: "LeftCounter#2",
+                rightCounter: "RightCounter#2",
+            },
+            {
+                id: 3,
+                programId: 3,
+                leftCounter: "LeftCounter#3",
+                rightCounter: "RightCounter#3",
+            },
+        ]
+    });
 }
