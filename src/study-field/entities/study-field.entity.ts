@@ -22,7 +22,7 @@ export class StudyField {
     description: string;
 
     @Field({ nullable: true })
-    copyToKk: boolean;
+    copyToKk?: boolean;
 
     @Field()
     slug: string;
