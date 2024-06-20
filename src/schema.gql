@@ -23,7 +23,39 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Category {
+  id: Int!
+  type: CategoryType!
+  slug: String!
+  copyToKk: Boolean!
+  description: String!
+  locale: Locale!
+  published_at: DateTime!
+  created_at: DateTime!
+  updated_at: DateTime!
+  labelCases: LabelCase!
+}
+
+enum CategoryType {
+  mini
+  executive
+  profession
+  course
+  mba
+}
+
+type LabelCase {
+  id: Int!
+  singular: String!
+  plural: String!
+  categories: [Category!]!
+}
+
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
+  labelCases: [LabelCase!]!
+  labelCase(id: Int!): LabelCase!
+  categories: [Category!]!
+  category(id: Int!): Category!
 }
