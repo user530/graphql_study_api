@@ -1,9 +1,6 @@
 import { Field, Int, ObjectType, registerEnumType } from '@nestjs/graphql';
+import { Locale } from 'src/shared/enums';
 import { Program } from 'src/program/entities/Program.entity';
-
-enum Locale {
-    ru,
-}
 
 // Register enums
 registerEnumType(Locale, {
@@ -39,6 +36,6 @@ export class StudyField {
     @Field(() => Date)
     updated_at: Date;
 
-    @Field(() => [Program])
-    programs: Program[];
+    // @Field(() => [Program])
+    // programs: Program[];
 }
