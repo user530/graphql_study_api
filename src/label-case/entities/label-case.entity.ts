@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Category } from '@prisma/client';
+import { Category } from 'src/category/entities/category.entity';
 
 @ObjectType()
 export class LabelCase {
@@ -12,6 +12,6 @@ export class LabelCase {
     @Field()
     plural: string;
 
-    // @Field(() => [Category])
-    // categories: Category[];
+    @Field(() => [Category])
+    categories: Category[];
 }

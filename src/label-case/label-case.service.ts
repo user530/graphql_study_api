@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { LabelCase } from '@prisma/client';
 import { PrismaService } from 'src/database/prisma/prisma.service';
-import { LabelCase } from './entities/label-case.entity';
 
 @Injectable()
 export class LabelCaseService {
@@ -9,7 +9,13 @@ export class LabelCaseService {
     ) { }
 
     async getLabelCases(): Promise<LabelCase[]> {
-        return this.prismaService.labelCase.findMany();
+        return this.prismaService.labelCase.findMany(
+            {
+                include: {
+                    categories: true,
+                },
+            }
+        );
     }
 
     async getLabelCase(id: number) {
@@ -18,7 +24,8 @@ export class LabelCaseService {
                 where:
                 {
                     id,
-                }
+                },
+                include: { categories: true }
             }
         );
     }
