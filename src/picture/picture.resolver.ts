@@ -1,6 +1,6 @@
 import { Args, Int, Query, Resolver } from '@nestjs/graphql';
 import { PictureService } from './picture.service';
-import { Picture } from './entity/picture.entity';
+import { Picture } from './entities';
 
 @Resolver()
 export class PictureResolver {
