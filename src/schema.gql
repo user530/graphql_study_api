@@ -51,6 +51,65 @@ type LabelCase {
   categories: [Category!]!
 }
 
+type ResourceMetadata {
+  public_id: String!
+  resource_type: ResourceType!
+}
+
+enum ResourceType {
+  image
+}
+
+type PictureFormat {
+  name: String!
+  width: Int!
+  height: Int!
+  hash: String!
+  ext: Extension!
+  mime: MimeType!
+  size: Float!
+  url: String!
+  provider_metadata: ResourceMetadata!
+  path: String
+}
+
+enum Extension {
+  jpg
+  png
+}
+
+enum MimeType {
+  jpeg
+  png
+}
+
+type PictureFormats {
+  small: PictureFormat
+  medium: PictureFormat
+  large: PictureFormat
+  thumbnail: PictureFormat
+}
+
+type Picture {
+  name: String!
+  width: Int!
+  height: Int!
+  hash: String!
+  ext: Extension!
+  mime: MimeType!
+  size: Float!
+  url: String!
+  provider_metadata: ResourceMetadata!
+  id: Int!
+  alternativeText: String!
+  caption: String!
+  formats: PictureFormats!
+  provider: String!
+  previewUrl: String
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
@@ -58,4 +117,6 @@ type Query {
   labelCase(id: Int!): LabelCase!
   categories: [Category!]!
   category(id: Int!): Category!
+  pictures: [Picture!]!
+  picture(id: Int!): Picture!
 }
