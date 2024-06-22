@@ -122,6 +122,12 @@ type ModuleTool {
   tool: String!
 }
 
+type PotentialCandidat {
+  id: Int!
+  name: String!
+  description: String!
+}
+
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
@@ -135,4 +141,6 @@ type Query {
   skill(id: Int!): Skill!
   moduleTools: [ModuleTool!]!
   moduleTool(id: Int!): ModuleTool!
+  potentialCandidats: [PotentialCandidat!]!
+  potentialCandidat(id: Int!): PotentialCandidat!
 }

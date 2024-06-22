@@ -10,6 +10,7 @@ import { CategoryModule } from 'src/category/category.module';
 import { PictureModule } from 'src/picture/picture.module';
 import { SkillModule } from 'src/skill/skill.module';
 import { ModuleToolModule } from 'src/module-tool/module-tool.module';
+import { PotentialCandidatModule } from 'src/potential-candidat/potential-candidat.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ModuleToolModule } from 'src/module-tool/module-tool.module';
     PictureModule,
     SkillModule,
     ModuleToolModule,
+    PotentialCandidatModule,
   ],
 })
 export class AppModule { }
