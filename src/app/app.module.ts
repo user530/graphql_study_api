@@ -4,12 +4,12 @@ import { httpConfig } from 'src/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-import { ProgramModule } from 'src/program/program.module';
 import { StudyFieldModule } from 'src/study-field/study-field.module';
 import { LabelCaseModule } from 'src/label-case/label-case.module';
 import { CategoryModule } from 'src/category/category.module';
 import { PictureModule } from 'src/picture/picture.module';
 import { SkillModule } from 'src/skill/skill.module';
+import { ModuleToolModule } from 'src/module-tool/module-tool.module';
 
 @Module({
   imports: [
@@ -28,6 +28,7 @@ import { SkillModule } from 'src/skill/skill.module';
     CategoryModule,
     PictureModule,
     SkillModule,
+    ModuleToolModule,
   ],
 })
 export class AppModule { }

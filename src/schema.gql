@@ -110,6 +110,18 @@ type Picture {
   updated_at: DateTime!
 }
 
+type Skill {
+  id: Int!
+  title: String!
+  string: String!
+  new: Boolean
+}
+
+type ModuleTool {
+  id: Int!
+  tool: String!
+}
+
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
@@ -119,4 +131,8 @@ type Query {
   category(id: Int!): Category!
   pictures: [Picture!]!
   picture(id: Int!): Picture!
+  skills: [Skill!]!
+  skill(id: Int!): Skill!
+  moduleTools: [ModuleTool!]!
+  moduleTool(id: Int!): ModuleTool!
 }
