@@ -9,6 +9,7 @@ import { StudyFieldModule } from 'src/study-field/study-field.module';
 import { LabelCaseModule } from 'src/label-case/label-case.module';
 import { CategoryModule } from 'src/category/category.module';
 import { PictureModule } from 'src/picture/picture.module';
+import { SkillModule } from 'src/skill/skill.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { PictureModule } from 'src/picture/picture.module';
     LabelCaseModule,
     CategoryModule,
     PictureModule,
+    SkillModule,
   ],
 })
 export class AppModule { }
