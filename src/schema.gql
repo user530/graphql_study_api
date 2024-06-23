@@ -128,6 +128,24 @@ type PotentialCandidat {
   description: String!
 }
 
+type HeroAdvantage {
+  id: Int!
+  string: String!
+}
+
+type Faq {
+  id: Int!
+  question: String!
+  answer: String!
+}
+
+type SubjectAddon {
+  id: Int!
+  Practice: Boolean!
+  diplomaProtection: Boolean
+  OfflineModule: Boolean
+}
+
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
@@ -143,4 +161,10 @@ type Query {
   moduleTool(id: Int!): ModuleTool!
   potentialCandidats: [PotentialCandidat!]!
   potentialCandidat(id: Int!): PotentialCandidat!
+  heroAdvantages: [HeroAdvantage!]!
+  heroAdvantage(id: Int!): HeroAdvantage!
+  faqs: [Faq!]!
+  faq(id: Int!): Faq!
+  subjectAddons: [SubjectAddon!]!
+  subjectAddon(id: Int!): SubjectAddon!
 }

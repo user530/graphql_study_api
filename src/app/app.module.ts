@@ -11,6 +11,9 @@ import { PictureModule } from 'src/picture/picture.module';
 import { SkillModule } from 'src/skill/skill.module';
 import { ModuleToolModule } from 'src/module-tool/module-tool.module';
 import { PotentialCandidatModule } from 'src/potential-candidat/potential-candidat.module';
+import { HeroAdvantageModule } from 'src/hero-advantage/hero-advantage.module';
+import { FaqModule } from 'src/faq/faq.module';
+import { SubjectAddonModule } from 'src/subject-addon/subject-addon.module';
 
 @Module({
   imports: [
@@ -31,6 +34,9 @@ import { PotentialCandidatModule } from 'src/potential-candidat/potential-candid
     SkillModule,
     ModuleToolModule,
     PotentialCandidatModule,
+    HeroAdvantageModule,
+    FaqModule,
+    SubjectAddonModule,
   ],
 })
 export class AppModule { }
