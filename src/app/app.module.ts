@@ -16,6 +16,7 @@ import { FaqModule } from 'src/faq/faq.module';
 import { SubjectAddonModule } from 'src/subject-addon/subject-addon.module';
 import { ProgramModule } from 'src/program/program.module';
 import { GraphQLBigInt } from 'graphql-scalars';
+import { ActualInformationModule } from 'src/actual-information/actual-information.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { GraphQLBigInt } from 'graphql-scalars';
     FaqModule,
     SubjectAddonModule,
     ProgramModule,
+    ActualInformationModule,
   ],
 })
 export class AppModule { }
