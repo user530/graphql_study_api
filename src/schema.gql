@@ -2,26 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type StudyField {
+type LabelCase {
   id: Int!
-  name: String!
-  description: String!
-  copyToKk: Boolean
-  slug: String!
-  locale: Locale!
-  published_at: DateTime!
-  created_at: DateTime!
-  updated_at: DateTime!
+  singular: String!
+  plural: String!
+  categories: [Category!]!
 }
-
-enum Locale {
-  ru
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type Category {
   id: Int!
@@ -34,6 +20,7 @@ type Category {
   created_at: DateTime!
   updated_at: DateTime!
   labelCases: LabelCase!
+  programs: [Program!]!
 }
 
 enum CategoryType {
@@ -44,12 +31,14 @@ enum CategoryType {
   mba
 }
 
-type LabelCase {
-  id: Int!
-  singular: String!
-  plural: String!
-  categories: [Category!]!
+enum Locale {
+  ru
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type ResourceMetadata {
   public_id: String!
@@ -110,6 +99,73 @@ type Picture {
   updated_at: DateTime!
 }
 
+type SubjectAddon {
+  id: Int!
+  Practice: Boolean!
+  diplomaProtection: Boolean
+  OfflineModule: Boolean
+}
+
+type Program {
+  id: Int!
+  title: String!
+  slug: String!
+  showInMenu: Boolean
+  studyFormat: StudyFormat!
+  goal: String!
+  description: String!
+  price: BigInt
+  discount: Int
+  subjectsStickerType: StickerType
+  copyToKk: Boolean
+  study_field: StudyField
+  category: Category!
+  icon: String
+  metaTitle: String
+  metaDescription: String
+  locale: Locale!
+  published_at: DateTime!
+  created_at: DateTime!
+  updated_at: DateTime!
+  isActive: Boolean!
+  new: Boolean
+  hit: Boolean
+  frdo: Boolean
+  employment: Boolean
+  specializedSubjectsAddons: SubjectAddon
+  Picture: Picture
+}
+
+enum StudyFormat {
+  online
+  campus
+  blended
+}
+
+"""
+The `BigInt` scalar type represents non-fractional signed whole numeric values.
+"""
+scalar BigInt
+
+enum StickerType {
+  finalAttestation
+  fullTimeModuleInMoscow
+  practiceModulesAndFinalAttestation
+}
+
+type StudyField {
+  id: Int!
+  name: String!
+  description: String!
+  copyToKk: Boolean
+  slug: String!
+  locale: Locale!
+  published_at: DateTime!
+  created_at: DateTime!
+  updated_at: DateTime!
+  programs: [Program!]!
+}
+
 type Skill {
   id: Int!
   title: String!
@@ -139,13 +195,6 @@ type Faq {
   answer: String!
 }
 
-type SubjectAddon {
-  id: Int!
-  Practice: Boolean!
-  diplomaProtection: Boolean
-  OfflineModule: Boolean
-}
-
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
@@ -167,4 +216,6 @@ type Query {
   faq(id: Int!): Faq!
   subjectAddons: [SubjectAddon!]!
   subjectAddon(id: Int!): SubjectAddon!
+  programs: [Program!]!
+  program(id: Int!): Program!
 }

@@ -7,7 +7,20 @@ export class StudyFieldService {
     constructor(private readonly prisma: PrismaService) { }
 
     async getStudyFields(): Promise<StudyField[]> {
-        return this.prisma.studyField.findMany();
+        return this.prisma.studyField.findMany(
+            {
+                include: {
+                    programs: {
+                        include: {
+                            study_field: true,
+                            category: { include: { labelCases: true } },
+                            specializedSubjectsAddons: true,
+                            Picture: true,
+                        },
+                    },
+                }
+            }
+        );
     }
 
     async getStudyField(id: number): Promise<StudyField> {
@@ -16,7 +29,18 @@ export class StudyFieldService {
                 where:
                 {
                     id,
+                },
+                include: {
+                    programs: {
+                        include: {
+                            study_field: true,
+                            category: { include: { labelCases: true } },
+                            specializedSubjectsAddons: true,
+                            Picture: true,
+                        },
+                    },
                 }
+
             }
         );
     }
