@@ -23,3 +23,15 @@ export enum MimeType {
     jpeg = "image/jpeg",
     png = "image/png"
 }
+
+export enum StudyFormat {
+    online = "online",
+    campus = "campus",
+    blended = "blended",
+}
+
+export enum StickerType {
+    finalAttestation = "finalAttestation",
+    fullTimeModuleInMoscow = "fullTimeModuleInMoscow",
+    practiceModulesAndFinalAttestation = "practiceModulesAndFinalAttestation",
+}
