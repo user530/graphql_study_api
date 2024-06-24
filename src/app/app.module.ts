@@ -14,6 +14,8 @@ import { PotentialCandidatModule } from 'src/potential-candidat/potential-candid
 import { HeroAdvantageModule } from 'src/hero-advantage/hero-advantage.module';
 import { FaqModule } from 'src/faq/faq.module';
 import { SubjectAddonModule } from 'src/subject-addon/subject-addon.module';
+import { ProgramModule } from 'src/program/program.module';
+import { GraphQLBigInt } from 'graphql-scalars';
 
 @Module({
   imports: [
@@ -26,6 +28,11 @@ import { SubjectAddonModule } from 'src/subject-addon/subject-addon.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      buildSchemaOptions: {
+        scalarsMap: [
+          { scalar: GraphQLBigInt, type: BigInt }
+        ]
+      }
     }),
     StudyFieldModule,
     LabelCaseModule,
@@ -37,6 +44,7 @@ import { SubjectAddonModule } from 'src/subject-addon/subject-addon.module';
     HeroAdvantageModule,
     FaqModule,
     SubjectAddonModule,
+    ProgramModule,
   ],
 })
 export class AppModule { }
