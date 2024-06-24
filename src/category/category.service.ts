@@ -13,7 +13,14 @@ export class CategoryService {
             {
                 include: {
                     labelCases: true,
-                    // programs: true,
+                    programs: {
+                        include: {
+                            study_field: true,
+                            category: { include: { labelCases: true } },
+                            specializedSubjectsAddons: true,
+                            Picture: true,
+                        },
+                    },
                 }
             }
         );
@@ -25,7 +32,14 @@ export class CategoryService {
                 where: { id },
                 include: {
                     labelCases: true,
-                    // programs: true,
+                    programs: {
+                        include: {
+                            study_field: true,
+                            category: { include: { labelCases: true } },
+                            specializedSubjectsAddons: true,
+                            Picture: true,
+                        },
+                    },
                 }
             }
         );

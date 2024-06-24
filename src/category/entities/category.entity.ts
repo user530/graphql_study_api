@@ -1,5 +1,6 @@
 import { Field, Int, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { LabelCase } from 'src/label-case/entities/label-case.entity';
+import { Program } from 'src/program/entities/program.entity';
 import { CategoryType, Locale } from 'src/shared/enums';
 
 registerEnumType(CategoryType, { name: 'CategoryType' });
@@ -36,6 +37,6 @@ export class Category {
     @Field(() => LabelCase)
     labelCases: LabelCase;
 
-    // @Field(() => Program[])
-    // programs: Program[];
+    @Field(() => [Program])
+    programs: Program[];
 }
