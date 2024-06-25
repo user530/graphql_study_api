@@ -204,6 +204,14 @@ type ActualInformation {
   Program: Program!
 }
 
+type Subject {
+  id: Int!
+  string: String
+  title: Float
+  duration: Int
+  new: Boolean
+}
+
 type Query {
   studyFields: [StudyField!]!
   studyField(id: Int!): StudyField
@@ -229,4 +237,6 @@ type Query {
   program(id: Int!): Program!
   actualInformations: [ActualInformation!]!
   actualInformation(id: Int!): ActualInformation!
+  subjects: [Subject!]!
+  subject(id: Int!): Subject!
 }
