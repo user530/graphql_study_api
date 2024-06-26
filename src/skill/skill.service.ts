@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Skill } from '@prisma/client';
 import { PrismaService } from 'src/database/prisma/prisma.service';
+import { Skill } from './entities/skill.entity';
 
 @Injectable()
 export class SkillService {
@@ -16,7 +16,6 @@ export class SkillService {
                 }
             }
         });
-        console.log(skillsWithJunction);
 
         return skillsWithJunction.map(
             skill => ({
@@ -27,8 +26,20 @@ export class SkillService {
     }
 
     async getSkill(id: number): Promise<Skill> {
-        return this.prismaService.skill.findUnique({
+        const skillWithJunction = await this.prismaService.skill.findUnique({
+            include: {
+                subjects: {
+                    include: { Subject: true }
+                }
+            },
             where: { id },
         });
+
+        return {
+            ...skillWithJunction,
+            subjects: skillWithJunction.subjects.map(
+                skillOnSubject => skillOnSubject.Subject
+            )
+        };
     }
 }
