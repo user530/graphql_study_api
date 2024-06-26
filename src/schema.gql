@@ -207,9 +207,10 @@ type ActualInformation {
 type Subject {
   id: Int!
   string: String
-  title: Float
+  title: String
   duration: Int
   new: Boolean
+  skills: [Skill!]!
 }
 
 type Query {

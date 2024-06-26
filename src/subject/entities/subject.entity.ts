@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Skill } from 'src/skill/entities/skill.entity';
 
 @ObjectType()
 export class Subject {
@@ -9,11 +10,14 @@ export class Subject {
     string?: string;
 
     @Field({ nullable: true })
-    title?: number;
+    title?: string;
 
     @Field(() => Int, { nullable: true })
     duration?: number;
 
     @Field({ nullable: true })
     new?: boolean;
+
+    @Field(() => [Skill])
+    skills: Skill[];
 }
