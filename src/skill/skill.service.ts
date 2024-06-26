@@ -9,7 +9,21 @@ export class SkillService {
     ) { }
 
     async getSkills(): Promise<Skill[]> {
-        return this.prismaService.skill.findMany();
+        const skillsWithJunction = await this.prismaService.skill.findMany({
+            include: {
+                subjects: {
+                    include: { Subject: true }
+                }
+            }
+        });
+        console.log(skillsWithJunction);
+
+        return skillsWithJunction.map(
+            skill => ({
+                ...skill,
+                subjects: skill.subjects.map(skillOnSubject => skillOnSubject.Subject),
+            })
+        );
     }
 
     async getSkill(id: number): Promise<Skill> {

@@ -166,11 +166,21 @@ type StudyField {
   programs: [Program!]!
 }
 
+type Subject {
+  id: Int!
+  string: String
+  title: String
+  duration: Int
+  new: Boolean
+  skills: [Skill]
+}
+
 type Skill {
   id: Int!
   title: String!
   string: String!
   new: Boolean
+  subjects: [Subject]
 }
 
 type ModuleTool {
@@ -202,15 +212,6 @@ type ActualInformation {
   actualPhoto1: Picture
   actualPhoto2: Picture
   Program: Program!
-}
-
-type Subject {
-  id: Int!
-  string: String
-  title: String
-  duration: Int
-  new: Boolean
-  skills: [Skill!]!
 }
 
 type Query {

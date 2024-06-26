@@ -18,6 +18,6 @@ export class Subject {
     @Field({ nullable: true })
     new?: boolean;
 
-    @Field(() => [Skill])
-    skills: Skill[];
+    @Field(() => [Skill], { nullable: 'itemsAndList' })
+    skills?: Skill[];
 }
